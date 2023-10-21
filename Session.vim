@@ -15,9 +15,10 @@ else
 endif
 badd +1 ~/Recipe/recipe-app-api
 badd +83 app/app/settings.py
-badd +20 docker-compose.yml
+badd +15 docker-compose.yml
 badd +23 app/core/management/commands/wait_for_db.py
 badd +29 app/core/tests/test_commands.py
+badd +0 Dockerfile
 argglobal
 %argdel
 $argadd ~/Recipe/recipe-app-api
@@ -25,9 +26,9 @@ set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit docker-compose.yml
+edit Dockerfile
 argglobal
-balt app/core/tests/test_commands.py
+balt docker-compose.yml
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -38,12 +39,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 19 - ((18 * winheight(0) + 16) / 33)
+let s:l = 1 - ((0 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 19
-normal! 010|
+keepjumps 1
+normal! 0
 lcd ~/Recipe/recipe-app-api
 tabnext
 edit ~/Recipe/recipe-app-api/app/core/management/commands/wait_for_db.py
