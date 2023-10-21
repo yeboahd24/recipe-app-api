@@ -14,11 +14,13 @@ else
   set shortmess=aoO
 endif
 badd +1 ~/Recipe/recipe-app-api
-badd +83 app/app/settings.py
+badd +85 app/app/settings.py
 badd +15 docker-compose.yml
-badd +23 app/core/management/commands/wait_for_db.py
+badd +22 app/core/management/commands/wait_for_db.py
 badd +29 app/core/tests/test_commands.py
-badd +0 Dockerfile
+badd +2 Dockerfile
+badd +13 app/core/tests/test_models.py
+badd +12 app/core/models.py
 argglobal
 %argdel
 $argadd ~/Recipe/recipe-app-api
@@ -26,9 +28,9 @@ set stal=2
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit Dockerfile
+edit app/core/tests/test_models.py
 argglobal
-balt docker-compose.yml
+balt Dockerfile
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -39,17 +41,17 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 16) / 33)
+let s:l = 21 - ((20 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 21
 normal! 0
 lcd ~/Recipe/recipe-app-api
 tabnext
-edit ~/Recipe/recipe-app-api/app/core/management/commands/wait_for_db.py
+edit ~/Recipe/recipe-app-api/docker-compose.yml
 argglobal
-balt ~/Recipe/recipe-app-api/docker-compose.yml
+balt ~/Recipe/recipe-app-api/app/core/management/commands/wait_for_db.py
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -60,11 +62,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 22 - ((21 * winheight(0) + 16) / 33)
+let s:l = 12 - ((11 * winheight(0) + 16) / 33)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 22
+keepjumps 12
 normal! 0
 lcd ~/Recipe/recipe-app-api
 tabnext
@@ -88,7 +90,7 @@ set winwidth=1
 exe '1resize ' . ((&lines * 29 + 18) / 36)
 exe '2resize ' . ((&lines * 3 + 18) / 36)
 argglobal
-balt ~/Recipe/recipe-app-api/docker-compose.yml
+balt ~/Recipe/recipe-app-api/app/core/models.py
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -99,12 +101,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 83 - ((14 * winheight(0) + 14) / 29)
+let s:l = 1 - ((0 * winheight(0) + 14) / 29)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 83
-normal! 042|
+keepjumps 1
+normal! 0
 lcd ~/Recipe/recipe-app-api
 wincmd w
 argglobal
@@ -122,7 +124,7 @@ lcd ~/Recipe/recipe-app-api
 wincmd w
 exe '1resize ' . ((&lines * 29 + 18) / 36)
 exe '2resize ' . ((&lines * 3 + 18) / 36)
-tabnext 1
+tabnext 3
 set stal=1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
