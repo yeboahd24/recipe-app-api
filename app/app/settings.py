@@ -39,7 +39,8 @@ INSTALLED_APPS = [
 ]
 
 LOCALL_APP = ['core', 'user']
-EXTERNAL_APP = ['drf_spectacular', 'rest_framework']
+EXTERNAL_APP = ['drf_spectacular',
+                'rest_framework', 'rest_framework.authtoken']
 INSTALLED_APPS += LOCALL_APP + EXTERNAL_APP
 
 MIDDLEWARE = [
