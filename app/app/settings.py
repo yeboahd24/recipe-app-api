@@ -39,8 +39,8 @@ INSTALLED_APPS = [
 ]
 
 LOCALL_APP = ['core']
-
-INSTALLED_APPS += LOCALL_APP
+EXTERNAL_APP = ['drf_spectacular', 'rest_framework']
+INSTALLED_APPS += LOCALL_APP + EXTERNAL_APP
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -141,3 +141,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.User'
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
