@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-LOCALL_APP = ['core']
+LOCALL_APP = ['core', 'user']
 EXTERNAL_APP = ['drf_spectacular', 'rest_framework']
 INSTALLED_APPS += LOCALL_APP + EXTERNAL_APP
 
