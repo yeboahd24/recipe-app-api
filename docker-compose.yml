@@ -22,9 +22,11 @@ services:
   db:
     image: postgres:13-alpine
     environment:
-      - POSTGRES_DB=devdb
-      - POSTGRES_USER=devuser
-      - POSTGRES_PASSWORD=devpass
+      - DB_HOST=db
+      - DB_USER=devuser
+      - DB_PASS=devpass
+      - DB_NAME=devdb
+      - DEBUG=1
 
     volumes:
       - dev-db-data:/var/lib/postgresql/data/
